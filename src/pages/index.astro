@@ -356,19 +356,19 @@ import '../styles/global.css';
     <form id="res-form" class="res-form" novalidate>
       <div class="form-field">
         <label for="res-name">Full name</label>
-        <input id="res-name" type="text" name="name" placeholder="Your name" autocomplete="name" />
+        <input id="res-name" type="text" name="name" placeholder="Your name" autocomplete="name" required />
       </div>
       <div class="form-field">
         <label for="res-email">Electronic address</label>
-        <input id="res-email" type="email" name="email" placeholder="your@address.com" autocomplete="email" />
+        <input id="res-email" type="email" name="email" placeholder="your@address.com" autocomplete="email" required />
       </div>
       <div class="form-field">
         <label for="res-arrival">Requested arrival window</label>
-        <input id="res-arrival" type="text" name="arrival" placeholder="e.g. March 2032" />
+        <input id="res-arrival" type="text" name="arrival" placeholder="e.g. March 2032" required />
       </div>
       <div class="form-field">
         <label for="res-party">Party size</label>
-        <select id="res-party" name="party">
+        <select id="res-party" name="party" required>
           <option value="" disabled selected>Select</option>
           <option value="1">Solo traveller</option>
           <option value="2">Two guests</option>

@@ -518,8 +518,31 @@ function initForm() {
   const form = document.getElementById('res-form');
   const conf = document.getElementById('res-confirmation');
   if (!form || !conf) return;
+
+  const fields = [...form.querySelectorAll('input, select')];
+
+  fields.forEach((field) => {
+    field.addEventListener('input', () => {
+      field.closest('.form-field')?.classList.toggle('invalid', !field.checkValidity());
+    });
+  });
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    let firstInvalid = null;
+    fields.forEach((field) => {
+      const valid = field.checkValidity();
+      field.closest('.form-field')?.classList.toggle('invalid', !valid);
+      field.setAttribute('aria-invalid', String(!valid));
+      if (!valid && !firstInvalid) firstInvalid = field;
+    });
+
+    if (firstInvalid) {
+      firstInvalid.focus();
+      return;
+    }
+
     gsap.timeline()
       .to(form, {
         opacity: 0, y: -14, duration: 0.7, ease: EC,

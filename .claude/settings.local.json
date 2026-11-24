@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "PowerShell(Get-Command node, npm, pnpm, bun -ErrorAction SilentlyContinue)",
+      "PowerShell($env:PATH)",
+      "PowerShell(Get-ChildItem \"C:\\\\Program Files\\\\\" -ErrorAction SilentlyContinue | Where-Object { $_.Name -match \"node|bun|pnpm|deno\" } | Select Name; Get-ChildItem \"C:\\\\Users\\\\leorh\\\\scoop\\\\\" -ErrorAction SilentlyContinue | Select Name)"
+    ]
+  }
+}

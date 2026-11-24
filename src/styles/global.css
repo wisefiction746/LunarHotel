@@ -1390,3 +1390,127 @@ body.cursor-hover #cursor {
 ::-webkit-scrollbar { width: 2px; }
 ::-webkit-scrollbar-track { background: var(--space); }
 ::-webkit-scrollbar-thumb { background: rgba(184,153,104,0.35); }
+
+/* ─── Responsive layout ─────────────────────────────── */
+@media (max-width: 1100px) {
+  #lunar-time { display: none; }
+  #site-nav { padding-inline: 2rem; }
+  .nav-links { gap: 1.25rem; }
+}
+
+@media (max-width: 767px) {
+  html { cursor: auto; }
+  body { font-size: 16px; }
+  #cursor, #cursor-dot { display: none; }
+
+  #site-nav { padding: 1.25rem 1rem; }
+  .nav-logo { font-size: 0.72rem; letter-spacing: 0.32em; }
+  .nav-links { gap: 0.65rem; }
+  .nav-links li:not(:last-child) { display: none; }
+  .nav-reserve { padding: 0.45rem 0.8rem !important; font-size: 0.58rem !important; }
+
+  #hero { height: 100svh; }
+  .hero-bg img { object-position: 52% 50%; }
+  .hero-content { top: 24%; width: 100%; }
+  .hero-selene { font-size: clamp(3.25rem, 18vw, 5.5rem); }
+  .hero-tagline { padding-inline: 1rem; }
+  .hero-scroll-hint { bottom: 1.5rem; }
+
+  #manifesto {
+    padding: 7rem 1.25rem;
+  }
+  .manifesto-text {
+    font-size: clamp(1.65rem, 7vw, 2.25rem);
+  }
+
+  .residences-header,
+  .press-header,
+  .wellness-header,
+  .journey-header {
+    padding-inline: 0;
+  }
+  #residences { padding-top: 1rem; }
+  .residences-header { margin: 0 1.25rem 1.5rem; }
+  .residences-viewport { height: 72svh; }
+  #residences-track { display: flex; }
+  .residence-panel { width: 88vw; margin-right: 4vw; }
+  .residence-panel:first-child { margin-left: 1.25rem; }
+  .residence-content { padding: 1.5rem 1.25rem; }
+  .residence-desc { font-size: 0.82rem; }
+  .residences-progress { margin-inline: 1.25rem; }
+
+  #restaurant { height: 78svh; }
+  .restaurant-content {
+    max-width: none;
+    width: 100%;
+    padding: 2.5rem 1.25rem;
+  }
+  .restaurant-overlay {
+    background: linear-gradient(to top, rgba(10,10,15,0.94) 0%, rgba(10,10,15,0.35) 70%, transparent 100%);
+  }
+
+  #press, #wellness, #journey, #reservations {
+    padding: 7rem 1.25rem;
+  }
+  .press-track,
+  .wellness-grid,
+  .journey-track {
+    grid-template-columns: 1fr;
+  }
+  .press-track { gap: 3.5rem; }
+  .wellness-grid { gap: 4rem; }
+  .wellness-panel--right { padding-top: 0; }
+  .wellness-panel:first-child .wellness-panel-image,
+  .wellness-panel--right .wellness-panel-image { height: 55svh; }
+
+  .journey-track { gap: 3.5rem; }
+  .journey-track::before { display: none; }
+  .journey-step { padding: 0; }
+
+  #reservations { max-width: none; }
+  .res-form { grid-template-columns: 1fr; }
+  .form-field,
+  .form-field:nth-child(odd),
+  .form-field:nth-child(even) {
+    padding: 1.5rem 0;
+    border-left: none;
+  }
+  .res-submit-row { padding-top: 2.5rem; }
+  .res-submit { width: 100%; padding-inline: 1rem; }
+
+  #site-footer {
+    grid-template-columns: 1fr;
+    padding: 3.5rem 1.25rem;
+    text-align: center;
+  }
+  .footer-links { flex-wrap: wrap; gap: 1.25rem; }
+  .footer-right { text-align: center; }
+
+  .sovereign-inner { padding: 2rem 1.25rem; }
+  .sovereign-close { top: 1.25rem; right: 1rem; }
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+  #hero { height: 100svh; }
+  .hero-content { top: 18%; }
+  .hero-scroll-hint { display: none; }
+  .residences-viewport { height: 72svh; }
+}
+
+@media (pointer: coarse) {
+  html, .res-submit, .sovereign-close { cursor: auto; }
+  #cursor, #cursor-dot { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Form validation state ──────────────────────────── */
+.form-field.invalid {
+  border-bottom-color: rgba(206, 128, 128, 0.75);
+}
