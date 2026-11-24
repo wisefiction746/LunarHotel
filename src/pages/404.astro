@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+---
+<Layout title="Selene Grand — Beyond Our Coordinates">
+
+<style>
+  #void {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .void-star {
+    width: 3px; height: 3px;
+    background: rgba(244,237,224,0.8);
+    border-radius: 50%;
+    margin: 0 auto 4rem;
+    box-shadow:
+      0 0 8px 2px rgba(244,237,224,0.4),
+      0 0 24px 6px rgba(184,153,104,0.2);
+    animation: voidPulse 3.2s ease-in-out infinite;
+  }
+
+  @keyframes voidPulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50%       { opacity: 1;   transform: scale(1.6); }
+  }
+
+  .void-code {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: 0.52rem;
+    letter-spacing: 0.55em;
+    color: var(--brass);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .void-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    letter-spacing: 0.08em;
+    color: var(--ivory);
+    line-height: 1.2;
+    margin-bottom: 1.8rem;
+  }
+
+  .void-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    line-height: 1.9;
+    color: rgba(244,237,224,0.35);
+    max-width: 38ch;
+    margin: 0 auto 3.5rem;
+  }
+
+  .void-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 0.62rem;
+    letter-spacing: 0.35em;
+    color: rgba(244,237,224,0.3);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(184,153,104,0.25);
+    padding-bottom: 0.3rem;
+    transition:
+      color 0.7s cubic-bezier(0.65,0,0.35,1),
+      border-color 0.7s cubic-bezier(0.65,0,0.35,1);
+  }
+
+  .void-link:hover {
+    color: var(--brass);
+    border-color: var(--brass);
+  }
+
+  .void-coords {
+    position: fixed;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.5rem;
+    letter-spacing: 0.3em;
+    color: rgba(244,237,224,0.12);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+</style>
+
+<div id="void">
+  <div class="void-star"></div>
+  <div class="void-code">404 &middot; Position unknown</div>
+  <h1 class="void-heading">You have drifted<br />beyond our coordinates</h1>
+  <p class="void-text">
+    The page you were searching for does not appear on our charts.
+    Mare Tranquillitatis is still out there, waiting.
+  </p>
+  <a href="/" class="void-link">Return to Selene Grand</a>
+</div>
+
+<p class="void-coords">Mare Tranquillitatis &middot; 0.67°N 23.47°E &middot; Signal lost</p>
+
+</Layout>
